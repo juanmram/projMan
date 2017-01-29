@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ProjMan</title>
+<link rel="stylesheet" href="static/css/foundation.css" />
+<script src="static/js/vendor/modernizr.js"></script>
+</head>
+<body>
+   <h1>Employees' List</h1>
+      <!-- Main Page Content and Sidebar -->
+     {% for post in post %}
+      <div class="row">
+        <!-- Main Blog Content -->
+        <div class="large-9 columns" role="content">
+          <article>
+            <h4>{{ post.name }}</h4>
+
+            <div class="row">
+              <div class="large-6 columns">
+                <p>{{ post.department }}</p>
+                <p>{{ post.role }}</p>
+                <p><a href="{{ url_for('edit', id=post.id) }}">Edit</a></p><p><a href="{{ url_for('delete', id=post.id) }}">Delete</a></p>
+
+          </article>
+
+          <hr/>
+
+       {% endfor %}
+
+   <a href="/create" class="button" role="button">Create</a>
+
+        <!-- End Main Content -->
+
+   <script src="static/js/vendor/jquery.js"></script>
+   <script src="static/js/foundation.min.js"></script>
+   <script>
+      $(document).foundation();
+   </script>
+</body>
+</html>

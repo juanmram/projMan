@@ -9,7 +9,6 @@ WORKDIR /opt/projMan
 ADD requirements.txt /opt/projMan/
 RUN pip install -r requirements.txt
 ADD . /opt/projMan
-ENV FLASK_APP run.py
 
 # Define default command.
-#CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "run.py"]

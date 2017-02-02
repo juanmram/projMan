@@ -9,6 +9,7 @@ WORKDIR /opt/projMan
 ADD requirements.txt /opt/projMan/
 RUN pip install -r requirements.txt
 ADD . /opt/projMan
+ENV DATABASE_URL 'mysql://root:jonNBZ91@mysql/projman_db'
 
 # Define default command.
 CMD ["python", "run.py"]

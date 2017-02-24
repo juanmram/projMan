@@ -71,18 +71,18 @@ Nuestro ambiente virtual ahora se encuentra configurado en la carpeta *env/*
    ```
    # pip install -r requirements.txt
    ```
-5. Si vamos a usar una **nueva base de datos local o remota** debemos ejecutar los siguientes para migrar nuestros modelos a esta.
-
-   ```
-   # chmod +x db.py
-   # python db.py init
-   # python db.py migrate
-   # python db.py upgrade
-   ```
-6. Para conectarnos con la base de datos debemos colocar en nuestro ambiente una variable llamada **DATABASE_URL**. *Para la conexión con la base de datos actual de la aplicación favor contactar al desarrollador para que este le provea los datos de acceso orginales*.
+5. Para conectarnos con la base de datos debemos colocar en nuestro ambiente una variable llamada **DATABASE_URL**. *Para la conexión con la base de datos actual de la aplicación contactar al desarrollador para que le provea los datos de acceso a esta*.
 
    ```
    # export DATABASE_URL='mysql://user:pass@server_hostname/db_name'
+   ```
+6. Si vamos a usar una **nueva base de datos local o remota** debemos ejecutar los siguientes comandos para migrar nuestros modelos a esta.
+
+   ```
+   # chmod +x db.py
+   # python db.py db init
+   # python db.py db migrate
+   # python db.py db upgrade
    ```
 7. Ahora solo falta iniciar el servidor, el cual por defecto corre en el puerto 5000.
 

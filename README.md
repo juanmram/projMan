@@ -100,7 +100,7 @@ La aplicación también ha sido desplegada en docker nativo (Linux) mediante el 
 
    ```
    # docker run --name db -e MYSQL_ROOT_PASSWORD=test -d -p 3306:3306 mariadb
-   # docker build -t projMan .
+   # docker build -t projman .
    # docker run -id -p 5000:5000 --name projMan --link db:mysql projman
    ```
 Los pasos anteriores solo son necesarios la primera vez; cuando se desea iniciar el contenedor de nuevo solo ejecutamos:

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ProjMan Register Form</title>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="static/js/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+<!-- Form Mixin-->
+<!-- Input Mixin-->
+<!-- Button Mixin-->
+<!-- Pen Title-->
+<div class="pen-title">
+  <h1>ProjMan Register Form</h1>
+</div>
+<!-- Form Module-->
+<div class="module form-module">
+  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+    <a href="login">
+      <div class="tooltip">Click me to login</div>
+    </a>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+    <form method="post" action="register">
+      <input type="text" placeholder="Full Name" name="name" required/>
+      <input type="text" placeholder="Username" name="username" required/>
+      <input type="password" placeholder="Password" name="pass" required/>
+      <button>Register</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

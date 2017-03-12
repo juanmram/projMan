@@ -9,23 +9,6 @@ from wtforms.validators import Required, Length, EqualTo
 import pyqrcode
 from io import StringIO
 
-
-class RegisterForm(Form):
-    """Registration form."""
-    name = StringField('Full Name', validators=[Required(), Length(1, 128)])
-    username = StringField('Username', validators=[Required(), Length(1, 64)])
-    password = PasswordField('Password', validators=[Required()])
-    password_again = PasswordField('Password again',
-                                   validators=[Required(), EqualTo('password')])
-    submit = SubmitField('Register')
-
-class LoginForm(Form):
-    """Login form."""
-    username = StringField('Username', validators=[Required(), Length(1, 64)])
-    password = PasswordField('Password', validators=[Required()])
-    submit = SubmitField('Login')
-    
-    
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -63,10 +46,13 @@ def register():
 @app.route('/qr')
 def qr_auth():
     if 'username' not in session:
-        return redirect(url_for('index'))
+	flash("username not in Session")
+        return redirect(url_for('register'))
+
     user = User.query.filter_by(username=session['username']).first()
     if user is None:
-        return redirect(url_for('index'))
+	flash("Username doesn't exist in DB")
+        return redirect(url_for('register'))
     # since this page contains the sensitive qrcode, make sure the browser
     # does not cache it
     return render_template('qr.html'), 200, {

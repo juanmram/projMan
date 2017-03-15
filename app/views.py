@@ -91,7 +91,7 @@ def login():
         
     if request.method == 'POST':
         user = User.query.filter_by(username=request.form['username']).first()
-        if user is None or not user.verify_password(request.form['pass']): # or not user.verify_totp(request.form['token']):
+        if user is None or not user.verify_password(request.form['pass']) or not user.verify_totp(request.form['token']):
             flash('Invalid username, password or token.')
             return redirect(url_for('login'))
         # log user in
@@ -136,9 +136,9 @@ def edit (id):
     #Getting user by primary key:
     post = Post.query.get(id)
     if request.method == 'POST':
-		post.name = request.form['name']
+		post.role = request.form['role']
 		post.department =  request.form['department']
-		post.role =  request.form['role']
+		post.description =  request.form['description']
 		db.session.commit()
 		return  redirect(url_for('index'))
     return render_template('edit.html', post=post)

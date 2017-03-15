@@ -1,14 +1,28 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ProjMan</title>
-<link rel="stylesheet" href="static/css/foundation.css" />
-<script src="static/js/vendor/modernizr.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProjMan</title>
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <link rel="stylesheet" href="static/css/foundation.css" />
+  <script src="static/js/vendor/modernizr.js"></script>
 </head>
 <body>
-   <h1>Responsabilities List</h1>
+ <!-- Display flashed messages -->
+      {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+          {%- for msg in msgs %}
+            <div class="alert alert-info">
+              {{ msg }}
+            </div>
+          {% endfor -%}
+        {% endif %}
+      {% endwith %}
+
+      {% block body %} {% endblock %}
+
+   <h1>{{ user }} List</h1>
       <!-- Main Page Content and Sidebar -->
      {% for post in post %}
       <div class="row">
@@ -19,8 +33,9 @@
 
             <div class="row">
               <div class="large-6 columns">
-                <p>{{ post.department }}</p>
-                <p>{{ post.role }}</p>
+                <p><b>Department:</b> {{ post.department }}</p>
+                <p><b>Role:</b> {{ post.role }}</p>
+                <p><b>Description:</b> {{ post.description }}</p>
                 <p><a href="{{ url_for('edit', id=post.id) }}">Edit</a></p><p><a href="{{ url_for('delete', id=post.id) }}">Delete</a></p>
 
           </article>

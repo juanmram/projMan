@@ -91,8 +91,7 @@ def login():
         
     if request.method == 'POST':
         user = User.query.filter_by(username=request.form['username']).first()
-        if user is None or not user.verify_password(request.form['pass']) or \
-                not user.verify_totp(request.form['token']):
+        if user is None or not user.verify_password(request.form['pass']): # or not user.verify_totp(request.form['token']):
             flash('Invalid username, password or token.')
             return redirect(url_for('login'))
         # log user in
@@ -112,13 +111,13 @@ def logout():
 @login_required
 def index():
     post = Post.query.filter_by(user_id=current_user.id)
-    return render_template('index.html', post=post)
+    return render_template('index.html', post=post, user=current_user.name)
 
 @app.route('/create' , methods=['POST', 'GET'])
 @login_required
 def add():
     if request.method == 'POST':
-        id = User.query.filter_by(username=current_user.name).first()
+        id = User.query.filter_by(username=current_user.username).first()
         post=Post(user_id=current_user.id, 
                     department=request.form['department'],
                     role=request.form['role'],

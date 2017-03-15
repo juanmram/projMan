@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_compress import Compress
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
@@ -19,5 +20,9 @@ db = SQLAlchemy()
 login_manager.init_app(app)
 db.init_app(app)
 bootstrap = Bootstrap(app)
+
+#Compress data
+compress = Compress()
+compress.init_app(app)
 
 from app import views, models

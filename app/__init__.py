@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask_compress import Compress
+from flask_cache import Cache
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
@@ -24,5 +25,8 @@ bootstrap = Bootstrap(app)
 #Compress data
 compress = Compress()
 compress.init_app(app)
+
+#Set up cache
+cache = Cache(app, config={'CACHE_TYPE':'simple'}
 
 from app import views, models

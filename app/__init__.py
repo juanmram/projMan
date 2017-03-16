@@ -16,17 +16,17 @@ app.secret_key = '\xa6\x8f\xb8d\x00\xdaH\xd2i\x96\xc9v0$]:\xae\xdb\xd3\xd9k\xa2\
 
 login_manager = LoginManager()
 db = SQLAlchemy()
+compress = Compress()
 
 #Create an instance of SQLAclhemy
 login_manager.init_app(app)
 db.init_app(app)
 bootstrap = Bootstrap(app)
-
-#Compress data
-compress = Compress()
+cache = Cache(app, config={'CACHE_TYPE':'simple'})
 compress.init_app(app)
 
+#Compress data
+
 #Set up cache
-cache = Cache(app, config={'CACHE_TYPE':'simple'}
 
 from app import views, models

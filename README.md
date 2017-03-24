@@ -150,18 +150,16 @@ El sistema cuenta con dos bases de datos en replica configuradas en arquitectura
          ```
 
       1.1.2 Reiniciar mariadb:
-
          ```
          # systemctl restart mariadb
          ```
-
       1.1.3 Crear un usuario en la base de datos que realizará el trabajo de "Slave":
 
-         ```
-         MariaDB [(none)]> GRANT REPLICATION SLAVE ON *.* TO 'slave'@'%' IDENTIFIED BY 'projman';
-         MariaDB [(none)]> FLUSH PRIVILEGES;
-         MariaDB [(none)]> FLUSH TABLES WITH READ LOCK;
-         ```
+   ```
+   MariaDB [(none)]> GRANT REPLICATION SLAVE ON *.* TO 'slave'@'%' IDENTIFIED BY 'projman';
+   MariaDB [(none)]> FLUSH PRIVILEGES;
+   MariaDB [(none)]> FLUSH TABLES WITH READ LOCK;
+   ```
 
       1.1.4 Mostrar el estado del "Master" y copiar la información allí dada ya que serán importantes para su posterior uso. El resultado de este debe arrojar una tabla similar a la siguiente:
 

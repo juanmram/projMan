@@ -115,10 +115,10 @@ Los pasos anteriores solo son necesarios la primera vez; cuando se desea iniciar
 
 Para este caso particular se estan usando 4 maquinas virtuales, dos de ellas son usadas como servidores de aplicación y las otras dos como servidores de bases de datos. Con la siguiente distribución:
 
-DBServer1: 10.131.137.152
-DBServer2: 10.131.137.171
-AppServer1: 10.131.137.172
-AppServer2: 10.131.137.173
+* DBServer1: 10.131.137.152
+* DBServer2: 10.131.137.171
+* AppServer1: 10.131.137.172
+* AppServer2: 10.131.137.173
 
 ### Alta disponibilidad
 

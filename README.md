@@ -1,7 +1,7 @@
 # ProjMan#
 
 ## Descripción
-ProjMan es una aplicación web pensada para organizar los proyectos de una empresa donde lo que se busca es poder asociar a los diferentes empleados un rol característico en un departamento de la compañía o proyecto, con la finalidad de llevar registro de los responsables en cada labor.
+ProjMan es una aplicación web pensada para organizar los proyectos de una empresa donde lo que se busca es poder asociar a los diferentes empleados un rol característico en un departamento de la compañía o proyecto, con la finalidad de llevar registro de los responsables en cada labor. Cambio hecho por Juan Manuel
 
 La aplicación fue desarrollada con el uso del microframework **Flask** basado en python. El proyecto ha sido desplegado en **Docker** y **Heroku**.
 
